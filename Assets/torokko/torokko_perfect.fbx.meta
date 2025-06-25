@@ -1,9 +1,29 @@
 fileFormatVersion: 2
-guid: cbd595f306613d0498b9739d0b3e4192
+guid: 8c4e791901d55204eabaf62d324f8afc
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: body
+    second: {fileID: 2100000, guid: e121637e07a2c624894f3dc861c01710, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dimple
+    second: {fileID: 2100000, guid: 2af991912a68f7446b2555127f644544, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tire
+    second: {fileID: 2100000, guid: 4c1e46f0a97d6644caec9d428842823e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wheel
+    second: {fileID: 2100000, guid: 9be6a5e561f8f7e4f8211365434e8d32, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
