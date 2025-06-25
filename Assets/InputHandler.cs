@@ -4,31 +4,33 @@ using UnityEngine;
 
 public class InputHandler : MonoBehaviour
 {
-    // インスペクターから操作したい銃（GunController.cs）をセットする
+    // インスペクターから操作したい銃（Gun.cs）をセットする
     public Gun gun;
 
     // Update is called once per frame
     void Update()
     {
-
-        // gunControllerがセットされていない場合は、エラーを防ぐために何もしない
+        // gunがセットされていない場合は、エラーを防ぐために何もしない
         if (gun == null)
         {
-            Debug.LogError("GunControllerがセットされていません！");
+            Debug.LogError("Gunがセットされていません！");
             return;
         }
-        
-        // 元のコードの if-else if 構造をそのまま利用
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+
+        // --- ここからが修正部分 ---
+
+        // 右コントローラーの人差し指トリガーが押された瞬間、またはマウスの左クリックが押されたら発射
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger, OVRInput.Controller.RTouch) || Input.GetKeyDown(KeyCode.Mouse0))
         {
             // 発射処理の実行を命令する
             gun.Fire();
         }
-        else if (Input.GetKeyDown(KeyCode.R))
+        // 左コントローラーのXボタンが押された瞬間、またはRキーが押されたらリロード
+        // (リロードもコントローラーに対応させる場合の例)
+        else if (OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch) || Input.GetKeyDown(KeyCode.R))
         {
             // リロード処理の実行を命令する
             gun.Reload();
         }
-
     }
 }
