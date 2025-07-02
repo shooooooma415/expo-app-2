@@ -8,6 +8,7 @@ public class HP : MonoBehaviour
     private float currentHealth = 100;   // 現在のHP
     public Slider healthBar;  
     public Slider enemySlider;       // HPバーのスライダー
+    public GameObject clearUI;
 
     //ダメージを受け取ってHPを減らす関数
     public void Damage(int damage)
@@ -27,6 +28,12 @@ public class HP : MonoBehaviour
         // HPが0以下になったらプレイヤーが死ぬ処理
         if (currentHealth <= 0)
         {
+
+            if (clearUI != null)
+            {
+                clearUI.SetActive(true);
+            }
+            
             Destroy(gameObject);
         }
     }
