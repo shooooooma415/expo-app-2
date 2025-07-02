@@ -13,7 +13,7 @@ public class DestroyObject : MonoBehaviour
     void Start()
     {
         enemy = GameObject.Find("muti_myaku");   //敵情報を取得
-        hp = enemy.GetComponent<HP>();      //HP情報を取得
+        hp = enemy.GetComponent<HP>();   
     }
 
     void OnTriggerEnter(Collider other){
@@ -21,11 +21,12 @@ public class DestroyObject : MonoBehaviour
         //ぶつかったオブジェクトのTagにShellという名前が書いてあったならば（条件）.
         if (other.CompareTag("Shell")){
  
+            Debug.Log("銃弾が当たりました: " + other.gameObject.name); // デバッグログ
             //HPクラスのDamage関数を呼び出す
             hp.Damage(damage);
  
             //ぶつかってきたオブジェクトを破壊する.
-            //Destroy(other.gameObject);
+            Destroy(other.gameObject);
         }
     }
 }
