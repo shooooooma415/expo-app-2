@@ -18,6 +18,10 @@ public class start : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // メタクエストの右コントローラーのAボタンが押されたかチェック
+        if (OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch))
+        {
+            toGameView();
+        }
     }
 }

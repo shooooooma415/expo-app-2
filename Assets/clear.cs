@@ -18,6 +18,9 @@ public class clear : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch))
+        {
+            toGameView();
+        }
     }
 }
